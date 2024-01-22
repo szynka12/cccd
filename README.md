@@ -1,2 +1,2 @@
 # ccf - Comment CSV file
-post-rpocessor for csv file for generating metadata and documentation
+post-processor for csv files generating metadata and documentation for the fields
