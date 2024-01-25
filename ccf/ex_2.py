@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from Data import DataDescription
+from DataDescription import DataDescription
 
 if __name__ == "__main__":
     a = DataDescription(
