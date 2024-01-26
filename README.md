@@ -1,4 +1,4 @@
-# ccf - Comment CSV file
+# ccf - comment .csv file
 
 A small library for post-processing of csv files: **generating metadata and documentation of included data sets**
 
