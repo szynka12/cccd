@@ -1,6 +1,6 @@
 import polars as pl
 from .DataDescription import DataDescription
-from .format import default_format_head, default_format_description
+from .format import f_description, f_entry
 from typing import List, Callable, Dict, Any
 
 
@@ -13,8 +13,8 @@ class DataSet(DataDescription):
         self,
         name: str,
         description: str,
-        desc_formatter: Callable[[str], str] = default_format_description,
-        entry_formatter: Callable[[str, str], str] = default_format_head,
+        desc_formatter: Callable[[str], str] = f_description,
+        entry_formatter: Callable[[str, str], str] = f_entry,
         data_descriptor: Callable[
             [str, str], DataDescription
         ] = default_data_descriptor,
@@ -41,17 +41,13 @@ class DataSet(DataDescription):
         data_entries_text = "".join(
             [x.to_text(entry_opts, desc_opts) for x in self.data_descriptions_]
         )
-        if (
-            "write_lines" in header_entry_opts
-            and header_entry_opts["write_lines"] is True
-        ):
-            n_lines = data_entries_text.count("\n")
-            header_entry_opts["n_lines_data"] = n_lines
 
-        return (
-            super().to_text(header_entry_opts, header_desc_opts)
-            + data_entries_text
-        )
+        if "append_text" in entry_opts:
+            header_entry_opts["append_text"] += data_entries_text
+        else:
+            header_entry_opts["append_text"] = data_entries_text
+
+        return super().to_text(header_entry_opts, header_desc_opts)
 
     def append_data_raw(
         self, description: DataDescription, data: pl.DataFrame
