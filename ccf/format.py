@@ -5,14 +5,19 @@ from .metadata import MDataNames as M
 
 def f_metadata(mdata: Dict[str, Any], comment_text: str = "#") -> str:
 
-    mdata_str = ""
-    for key, value in mdata.items():
-        if type(value) is not str:
-            continue
+    # find the longest string in the data
+    ml = max(len(k) if type(v) is str else 0 for k, v in mdata.items())
 
-        mdata_str += f"{comment_text} - {key}:  {value}\n"
-
-    return mdata_str
+    return "".join(
+        (
+            # This could be changed or refacotor for a different way to write
+            # the metadata in the file.
+            f"{comment_text} - {k} {'.' * (ml - len(k) + 4)} {v}\n"
+            if type(v) is str
+            else ""
+        )
+        for k, v in mdata.items()
+    )
 
 
 def f_entry(
