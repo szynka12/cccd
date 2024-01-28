@@ -4,4 +4,4 @@ from .common import write_ds
 from .metadata import metadata
 
 
-__version__ = "v0.1.0"
+__version__ = "v0.1.1"

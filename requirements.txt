@@ -24,7 +24,7 @@ pandas==2.2.0
 pkginfo==1.9.6
 polars==0.20.5
 pyarrow==15.0.0
--e git+ssh://git@github.com/szynka12/pycdf.git@f02c4b2a15f6cd53b81e251df2711fd371933409#egg=pycdf
+-e git+ssh://git@github.com/szynka12/pycdf.git@78efca143b1cf854739f9e1ba2749ae44d98b64d#egg=pycdf
 pycparser==2.21
 pyflakes==3.2.0
 Pygments==2.17.2
