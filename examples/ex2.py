@@ -1,45 +1,5 @@
-# pycdf - python library for commenting data files
+#!/usr/bin/env python3
 
-A small library for post-processing of data (currently only csv) files:
-**generating metadata and documentation of included data sets**
-
-## Usage example 
-A minimal working example looks like that:
-```python
-import os
-import pycdf as cdf
-
-ds = cdf.DataSet("Data", "The description of the data set.")
-    ds.append("Value_1", "The description of the value nr. 1.", 42)
-    ds.append("Value_2", "The description of the second value.", 69)
-
-# we decide to save all of our results here
-results_f = "example_results"
-if not os.path.exists(results_f):
-    os.mkdir(results_f)
-
-cdf.write_ds(ds, f"{results_f}/ex1.csv")
-```
-Here, we have a dataset called `Data` with a description. We also have two 
-values that belong to the dataset. We also provide a description of the values.
-Finally, we save it all in `ex1.csv` file that looks as follows:
-```
-# Data:
-#    The description of the data set.
-#
-# Value_1:
-#    The description of the value nr. 1.
-#
-# Value_2:
-#    The description of the second value.
-#
-Value_1,Value_2
-42,69
-
-```
-
-A more involved example (including metadata and some customisation) below:
-```python
 import os
 import pycdf as cdf
 import polars as pl
@@ -88,4 +48,3 @@ if __name__ == "__main__":
         meta_data=mdata,
         comment_text="--",
     )
-```
