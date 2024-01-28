@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import polars as pl
 import os
-from ccf.DataSet import DataSet as ds
-from ccf.common import write_ds
-from ccf.metadata import metadata
+from pycdf.DataSet import DataSet as ds
+from pycdf.common import write_ds
+from pycdf.metadata import metadata
 
 if __name__ == "__main__":
 

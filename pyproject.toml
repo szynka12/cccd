@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pycdf"
+version = "0.1.0"
+description = "Generate csv files with descriptions of the data in a header"
+readme = "README.md"
+authors = [{ name = "Wojciech Sadowski", email = "wojciech1sadowski@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["metadata", "data documentation"]
+dependencies = [
+    "polars",
+]
+requires-python = ">=3.11"
+
+[project.urls]
+Homepage = "https://github.com/szynka12/pycdf"
+
+[project.optional-dependencies]
+dev = ["bumpver","pip-tools"]
+
+[tool.bumpver]
+current_version = "0.1.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message  = "Bump version {old_version} -> {new_version}"
+commit          = true
+tag             = true
+push            = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"src/reader/__init__.py" = ["{version}"]
+
