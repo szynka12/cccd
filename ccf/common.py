@@ -5,12 +5,12 @@ from typing import Dict, Any
 def write_ds(
     ds: DataSet,
     file_name: str,
-    write_lines: bool = False,
     comment_text: str | None = None,
     header_entry_opts: Dict[str, Any] | None = None,
     header_desc_opts: Dict[str, Any] | None = None,
     entry_opts: Dict[str, Any] | None = None,
     desc_opts: Dict[str, Any] | None = None,
+    meta_data: Dict[str, Any] | None = None,
 ):
 
     # Convert all to dictionaries, sice we cant do it in entry args
@@ -23,14 +23,14 @@ def write_ds(
     if entry_opts is None:
         entry_opts = {}
 
-    if write_lines:
-        header_entry_opts["write_lines"] = True
-
     if comment_text is not None:
         header_entry_opts["comment_text"] = comment_text
         header_desc_opts["comment_text"] = comment_text
         entry_opts["comment_text"] = comment_text
         desc_opts["comment_text"] = comment_text
+
+    if meta_data is not None:
+        header_entry_opts["meta_data"] = meta_data
 
     with open(file_name, mode="w") as file:
         file.write(
