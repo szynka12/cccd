@@ -1,4 +1,4 @@
-# pycdf - python library for commenting data files
+# c3d - create & comment `csv` data files 
 
 A small library for post-processing of data (currently only csv) files:
 **generating metadata and documentation of included data sets**
@@ -7,7 +7,7 @@ A small library for post-processing of data (currently only csv) files:
 A minimal working example looks like that:
 ```python
 import os
-import pycdf as cdf
+import cccd as cdf
 
 ds = cdf.DataSet("Data", "The description of the data set.")
     ds.append("Value_1", "The description of the value nr. 1.", 42)
@@ -41,7 +41,7 @@ Value_1,Value_2
 A more involved example (including metadata and some customisation) below:
 ```python
 import os
-import pycdf as cdf
+import cccd as cdf
 import polars as pl
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pycdf"
+name = "c3d"
 version = "0.1.1"
 description = "Generate csv files with descriptions of the data in a header"
 readme = "README.md"
@@ -21,7 +21,7 @@ dependencies = [
 requires-python = ">=3.11"
 
 [project.urls]
-Homepage = "https://github.com/szynka12/pycdf"
+Homepage = "https://github.com/szynka12/c3d"
 
 [project.optional-dependencies]
 dev = ["bumpver","pip-tools"]
@@ -36,5 +36,5 @@ push            = false
 
 [tool.bumpver.file_patterns]
 "pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
-"src/pycdf/__init__.py" = ["{version}"]
+"src/c3d/__init__.py" = ["{version}"]
 

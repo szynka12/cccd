@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-import pycdf as cdf
+import cccd as cdf
 
 
 if __name__ == "__main__":
