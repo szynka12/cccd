@@ -6,6 +6,7 @@ charset-normalizer==3.3.2
 click==8.1.7
 colorama==0.4.6
 cryptography==42.0.1
+docopt==0.6.2
 docutils==0.20.1
 idna==3.6
 importlib-metadata==7.0.1
@@ -21,10 +22,10 @@ nh3==0.2.15
 numpy==1.26.3
 packaging==23.2
 pandas==2.2.0
+pastel==0.2.1
 pkginfo==1.9.6
 polars==0.20.5
 pyarrow==15.0.0
--e git+ssh://git@github.com/szynka12/pycdf.git@78efca143b1cf854739f9e1ba2749ae44d98b64d#egg=pycdf
 pycparser==2.21
 pyflakes==3.2.0
 Pygments==2.17.2
